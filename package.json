@@ -1,0 +1,13 @@
+{
+  "name": "methylation-analysis",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cliu3322/methylation-analysis.git",
+  "author": "C. Liu <cliu3322@hawaii.edu>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.16.4",
+    "jade": "^1.11.0"
+  }
+}

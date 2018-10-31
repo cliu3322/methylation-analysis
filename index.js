@@ -5,12 +5,11 @@ var express = require('express'),
 
 var app = express();
 
-app.configure(function () {
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
-    app.use(express.bodyParser({ keepExtensions: true, uploadDir: path.join(__dirname, '/pictures')}));
-    app.use(express.static(path.join(__dirname, 'public')));
-});
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+//app.use(express.bodyParser({ keepExtensions: true, uploadDir: path.join(__dirname, '/pictures')}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', home.index);
 app.get('/contact', home.contact);
@@ -21,7 +20,7 @@ app.get('/customer/picture/:id', customer.picture);
 app.post('/customer/create', customer.createCustomer);
 app.get('/customer/edit/:id', customer.edit);
 app.post('/customer/edit/:id', customer.editCustomer);
-app.del('/customer/edit/:id', customer.delete);
+app.delete('/customer/edit/:id', customer.delete);
 
 app.locals.clock = { datetime: new Date().toUTCString()};
 
