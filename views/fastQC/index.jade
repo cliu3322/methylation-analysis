@@ -1,0 +1,7 @@
+html
+  head
+  body
+    form(action='/fastQC/upload', enctype='multipart/form-data', method='post')
+      input(type='text', name='title')
+      input(type='file', name='file')
+      input(type='submit', value='Upload')
