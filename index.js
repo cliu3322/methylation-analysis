@@ -1,9 +1,9 @@
 var express = require('express'),
     path = require('path'),
     home = require('./routes/home.js'),
-    fastQC = require('./routes/fastQC.js');
-    customer = require('./routes/customer.js');
-
+    fastQC = require('./routes/fastQC.js'),
+    customer = require('./routes/customer.js'),
+    trim = require('./routes/trim.js');
 var app = express();
 
 
@@ -18,6 +18,8 @@ app.get('/', home.index);
 app.get('/contact', home.contact);
 app.get('/fastQC', fastQC.index);
 app.post('/fastQC/upload', fastQC.uploadFastQC);
+app.post('/fastQC/trim', ()=>{});
+
 app.get('/customer/create', customer.create);
 app.get('/customer/details/:id', customer.details);
 app.get('/customer/picture/:id', customer.picture);
@@ -29,3 +31,5 @@ app.delete('/customer/edit/:id', customer.delete);
 app.locals.clock = { datetime: new Date().toUTCString()};
 
 app.listen(3000);
+
+module.exports = app;

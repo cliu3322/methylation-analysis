@@ -79,7 +79,9 @@ exports.uploadFastQC = function (req, res) {
     if (err) {
       return res.status(500).json({ error: err })
     } else {
-      return res.status(200).json({ uploaded: true })
+      console.log(files.file.name);
+      //return res.status(200).json({ uploaded: files.file.name })
+      return res.render('fastQC/trim', { title: files.file.name});
     }
   })
 
